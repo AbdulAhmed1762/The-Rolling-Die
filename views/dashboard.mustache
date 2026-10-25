@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    <h1>The Rolling Die</h1>
+    <h2>Manager Dashboard</h2>
+
+    <h3>Current Inventory</h3>
+
+    {{#games}}
+        <div>
+            <h4>{{title}}</h4>
+            <p>Category: {{category}}</p>
+            <p>Price: ${{price}}</p>
+            <p>Stock: {{stock}}</p>
+            <hr>
+        </div>
+    {{/games}}
+
+    {{^games}}
+        <p>No games currently available.</p>
+    {{/games}}
+
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>

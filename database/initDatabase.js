@@ -17,7 +17,7 @@ db.exec(schema, (err) => {
     if(err) {
         console.error("Error creating tables:", err.message);
     } else {
-        console.log("Games table created successfully");
+        console.log("Databases table created successfully");
     }
 
     db.close();
