@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    <h1>The Rolling Die</h1>
+    <h2>Edit Game</h2>
+
+    {{#game}}
+    <form action="/manager/games/edit/{{id}}" method="POST">
+
+        <label for="title">Game Title:</label>
+        <input type="text" id="title" name="title"
+               value="{{title}}" required>
+
+        <br><br>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category"
+               value="{{category}}" required>
+
+        <br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"
+                  required>{{description}}</textarea>
+
+        <br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price"
+               min="0" step="0.01" value="{{price}}" required>
+
+        <br><br>
+
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock"
+               min="0" step="1" value="{{stock}}" required>
+
+        <br><br>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+    {{/game}}
+
+    <p><a href="/manager/dashboard">Back to Dashboard</a></p>
+
+</body>
+</html>
