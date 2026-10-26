@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
     <h1>The Rolling Die</h1>
     <h2>Manager Dashboard</h2>
 
-    <a href ="/manager/games/add">
-        <button type="button">Add New Game </button>
+    <a href="/manager/games/add">
+        <button type="button">Add New Game</button>
     </a>
 
     <h3>Current Inventory</h3>
@@ -23,18 +24,16 @@
             <p>Price: ${{price}}</p>
             <p>Stock: {{stock}}</p>
 
-            <a href = "/manager/games/edit/{{id}}">
-                <button type="button">Edit Game </button>
+            <a href="/manager/games/edit/{{id}}">
+                <button type="button">Edit Game</button>
             </a>
 
             <form action="/manager/games/delete/{{id}}" method="POST"
-            onsubmit="return confirm('Are you sure you want to delete this game?');">
-                    <button type="submit">Delete Game</button>
-
+                onsubmit="return confirm('Are you sure you want to delete this game?');">
+                <button type="submit">Delete Game</button>
             </form>
 
             <hr>
-
         </div>
     {{/games}}
 
@@ -42,9 +41,24 @@
         <p>No games currently available.</p>
     {{/games}}
 
+    <!-- Live Discord Activity -->
+    <h3>Live Discord Activity</h3>
+
+    <p id="socket-status">Connecting to live activity...</p>
+
+    <ul id="discord-activity">
+        <li id="no-activity">No Discord activity yet.</li>
+    </ul>
+
+    <hr>
+
     <form action="/logout" method="POST">
         <button type="submit">Logout</button>
     </form>
+
+    <!-- Socket.IO client -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/dashboard.js"></script>
 
 </body>
 </html>

@@ -75,10 +75,21 @@ function deleteGame(id, callback) {
 
 }
 
+// Retrieve a game using its title
+function getGameByTitle(title, callback) {
+
+    const sql = "SELECT * FROM games WHERE LOWER(title) = LOWER(?)";
+
+    db.get(sql, [title], (err, game) => {
+        callback(err, game);
+    });
+}
+
 module.exports = {
     getAllGames,
     createGame,
     getGameById,
     updateGame,
-    deleteGame
+    deleteGame,
+    getGameByTitle
 };
